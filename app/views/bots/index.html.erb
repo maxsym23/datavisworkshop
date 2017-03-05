@@ -1,0 +1,28 @@
+<p id="notice"><%= notice %></p>
+<%= link_to 'New Bot', new_bot_path, class: "btn btn-lg btn-primary" %>
+<br>
+<br>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Query</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @bots.each do |bot| %>
+      <tr>
+        <td><%= bot.title %></td>
+        <td><%= bot.query %></td>
+        <td><%= link_to 'Show', bot %></td>
+        <td><%= link_to 'Destroy', bot, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+

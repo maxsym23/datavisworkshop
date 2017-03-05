@@ -1,0 +1,61 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <h1><%= @bot.title %></h1> 
+</p>
+
+<p>
+  <h1>Query: <%= @bot.query %></h1> 
+</p>
+
+  <section id="content"> 
+    <div class="content-wrap">
+      <div class="container clearfix">
+      <br>
+      <br>
+        <div class="row">
+          <div class="col-md-6"> 
+            <%= bar_chart @bot.tweets.top(:screen_name, 10), colors: ["blue", "green"] %>
+          </div>
+          <div class="col-md-6"> 
+            <%= pie_chart @bot.tweets.group(:lang).count %>
+          </div>
+       </div>
+       <div class="row">
+        <div class="col-md-12">
+            <%= scatter_chart @bot.tweets.pluck(:followers_count, :friends_count), xtitle: "# of Followers", ytitle: "# Following" %>
+        </div>
+      </div>
+      <br>
+      <div class="row">
+        <div class="col-md-12">
+          <%= line_chart @bot.tweets.group_by_hour(:time_created).count, colors: ["black", "red"] %>
+        </div>
+      </div>
+  </section><!-- #content end -->
+
+<p id="notice"><%= notice %></p>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Screen name</th>
+      <th>Text</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @bot.tweets.each do |tweet| %>
+      <tr>
+        <td><%= tweet.screen_name %></td>
+        <td><%= tweet.text %></td>
+        <td><%= link_to 'View', tweet %></td>
+        <!--<td><%= link_to 'Edit', edit_tweet_path(tweet) %></td>
+        <td><%= link_to 'Destroy', tweet, method: :delete, data: { confirm: 'Are you sure?' } %></td>-->
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'Edit', edit_bot_path(@bot) %> |
+<%= link_to 'Back', bots_path %>

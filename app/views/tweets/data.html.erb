@@ -1,0 +1,28 @@
+  <section id="content"> 
+    <div class="content-wrap">
+      <div class="container clearfix">
+      <br>
+      <br>
+        <div class="row">
+            <div class="col-md-6"> 
+            <%= pie_chart @tweets.top(:screen_name, 6), colors: ["blue", "green"] %>
+          </div>
+          <div class="col-md-6">
+            <%= pie_chart @tweets.top(:screen_name, 6), colors: ["red", "yellow"] %>
+        </div>
+        <div class="col-md-6">
+            <%= pie_chart @tweets.top(:screen_name, 6), colors: ["green", "yellow"], stacked: true %>
+        </div>
+        <div class="col-md-6">
+            <%= area_chart @tweets.top(:created_at), colors: ["pink", "yellow"] %>
+        </div>
+      </div>
+      <br>
+        <div class="row">
+          <div class="col-md-12">
+            <%= area_chart @tweets.top(:screen_name, 20), colors: ["black", "red"] %>
+          </div>
+        </div>
+      <br>
+      <br>
+  </section><!-- #content end -->

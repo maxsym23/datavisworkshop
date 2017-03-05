@@ -1,0 +1,26 @@
+<p id="notice"><%= notice %></p>
+<div class="container">
+	<div class="col-md-6 col-md-offset-2">
+		<p>
+		  <strong>Tweet</strong>
+		  <%= link_to @tweet.url, @tweet.url, class: 'embed' %>
+		</p>
+		<div class="panel">
+			<h1>Followers: <%= @tweet.followers_count %></h1> 
+		</div>
+		<div class="panel">
+			<h1>Following: <%= @tweet.friends_count %></h1> 
+		</div>
+		<div class="panel">
+			<h1>Favorited: <%= @tweet.favorite_count %> times</h1> 
+		</div>
+		<div class="panel">
+			<h1>Retweeted: <%= @tweet.retweet_count %> times</h1> 
+		</div>
+	</div>
+</div>
+<script>
+$(function(){
+   $("a.embed").oembed();
+});
+</script>
