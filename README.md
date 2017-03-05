@@ -1,24 +1,17 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+----
+Hi All!
 
-Things you may want to cover:
+Thanks so much again for attending the workshop
 
-* Ruby version
+Here is the code for the final webapp that we are working on creating.
 
-* System dependencies
+----
+    bundle install
+    rake db:create
+    rake db:migrate
+    rails s
 
-* Configuration
+----
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
