@@ -13,17 +13,17 @@
 
   <div class="field">
     <%= f.label :title %>
-    <%= f.text_field :title, class: 'form-control' %>
+    <%= f.text_field :title, placeholder: "New York Times", class: 'form-control' %>
   </div>
 
   <div class="field">
     <%= f.label :query %>
-    <%= f.text_field :query, class: 'form-control'  %>
+    <%= f.text_field :query, placeholder: "nytimes", class: 'form-control'  %>
   </div>
 
   <div class="field">
     <%= f.label :count %>
-    <%= f.number_field :count, class: 'form-control'  %>
+    <%= f.number_field :count, max: 3200, placeholder: "800", class: 'form-control'  %>
   </div>
   <br>
   <br>

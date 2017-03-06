@@ -28,6 +28,7 @@
 
 //= require jquery
 //= require jquery.oembed
+//= require jquery.toastr
 //= require bootstrap-sprockets
 //= require jquery_ujs
 //= require turbolinks
