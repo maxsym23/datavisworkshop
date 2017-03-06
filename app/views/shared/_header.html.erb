@@ -1,5 +1,5 @@
-<nav class="navbar navbar-default"> 
-  <div class="container-fluid">
+<nav class="navbar navbar-default navbar-fixed-top">    
+  <div class="container-fluid"> 
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
@@ -8,13 +8,37 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">@TweetGrabber</a>
+      <% if user_signed_in? %>
+      <% else %>
+      <%= link_to "@TweetBotBotBot", root_path, class: "navbar-brand" %>
+      <% end %>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
-    <ul class="nav navbar-nav navbar-right">
-      <li><%= link_to "Tweets", tweets_path %></li>
-      <li><%= link_to "Bots", bots_path %></li>
-    </ul>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+    <!--USER SIGNED IN--> 
+
+    <% if user_signed_in? %> 
+
+      <ul class="nav navbar-nav navbar-left">
+        <li><%= link_to "Tweets", tweets_path %></li>
+        <li><%= link_to "Bots", bots_path %></li>
+      </ul>
+
+      <ul class="nav navbar-nav navbar-right">
+          <li><%= link_to "Log Out", destroy_user_session_path, method: :delete %></li> 
+      </ul>
+
+    <!--USER SIGNED OUT--> 
+    <% else %>
+
+          <ul class="nav navbar-nav navbar-right">
+             <li><%= link_to "Login", new_user_session_path %></li>
+             <li><%= link_to "Get Started", new_user_registration_path %></li>
+          </ul>
+
+    <% end %>
+    </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>

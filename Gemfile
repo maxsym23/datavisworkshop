@@ -30,10 +30,16 @@ gem 'jbuilder', '~> 2.5'
 
 gem 'delayed_job_active_record'
 
+#Auth
+gem 'devise'
+gem 'devise_campaignable'
+
 
 
 gem "twitter"
 gem 'bootstrap-sass', '~> 3.3.6'
+gem 'toastr-rails'
+gem 'bootswatch-rails'
 
 
 

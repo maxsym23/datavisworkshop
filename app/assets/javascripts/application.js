@@ -17,6 +17,7 @@
 
 
 //= require keen.min.js
+//= require toastr
 
 //= require d3.min.js
 //= require queue.js
